@@ -1,0 +1,4 @@
+.venv/
+.DS_Store
+data/txt_sentoken/pos/.DS_Store
+data/txt_sentoken/neg/.DS_Store
