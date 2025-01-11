@@ -3,7 +3,7 @@ import string
 from nltk.corpus import stopwords
 from collections import Counter
 
-MIN_COUNT = 2
+MIN_COUNT = 20
 POS_PATH = './data/txt_sentoken/pos'
 NEG_PATH = './data/txt_sentoken/neg'
 
@@ -45,7 +45,7 @@ if __name__ == '__main__':
   print("Positive data loaded...")
   load_data(NEG_PATH, vocab)
   print("Negative data loaded...")
-  tokens = [s for s, t in vocab.items() if t >= MIN_COUNT]
+  tokens = [s for s, t in vocab.items() if t > MIN_COUNT]
   print("Tokens filtered by occurance...")
   save_tokens(tokens,'model/vocab.txt')
   print('vocab.txt file generated...')
