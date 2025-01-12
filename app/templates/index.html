@@ -8,17 +8,24 @@
 </head>
 
 <body>
-  <h1> Write your review: </h1>
-  <div className="wrapper">
-    <textarea id="reviewText" rows="10" cols="50"></textarea>
-    </br>
-    <button id="submitButton"> Submit </button>
-  </div>
+  <section>
+    <div className="container">
+      <h1> Movie Review Sentiment Classifier </h1>
+      <h4 className="description">
+        Insert the relevant movie review in the text box below. For more accurate
+        result, a larger input with few redundant characters is recommended. Please
+        note that this is not a perfect model, and might misclassify some inputs.
+      </h4>
+      <div className="wrapper">
+        <textarea id="reviewText" rows="14" cols="80" placeholder="Input relevant movie review here..."></textarea>
+        </br>
+        <button id="submitButton"> Submit </button>
+      </div>
 
-  <div className="resultDiv">
-    <h2> Prediction Result: </h2>
-    <p id="resultBox"> </p>
-  </div>
+      <h2> Prediction Result: </h2>
+      <h3 id="resultBox"> </h3>
+    </div>
+  </section>
 
   <script>
     let text;

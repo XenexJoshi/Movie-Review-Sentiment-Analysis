@@ -1,43 +1,97 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter';
+}
+
+section {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  z-index: 100;
   align-items: center;
-  background-color: black;
-  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  padding: 15px;
+  width: 100%;
+  background: #001923;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(rgb(217, 217, 23), rgb(176, 23, 23));
+  border-radius: 50%;
+  transform: translate(-420px, -180px);
+}
+
+section::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(rgb(215, 47, 47), rgb(41, 33, 130));
+  border-radius: 50%;
+  transform: translate(460px, 180px);
+}
+
+.container {
+  width: 1000px;
+  height: 200px;
+  margin: 50px auto;
+  z-index: -1;
 }
 
 h1 {
   color: aliceblue;
-  text-align: center;
-  margin-top: 50px;
+  font-size: 40px;
+  margin-bottom: 40px;
+  margin-left: 450px;
+}
+
+h4 {
+  color: aliceblue;
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 30px;
+  margin-left: 450px;
+  margin-right: 300px;
+  z-index: -1;
+}
+
+#reviewText {
+  margin-left: 420px;
   margin-bottom: 20px;
+  font-size: 13px;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+#submitButton {
+  margin-left: 670px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  border-radius: 14px;
+  border-width: 0px;
+  width: 80px;
+  height: 30px;
+  background-color: rgb(8, 158, 8);
+  color: aliceblue;
 }
 
 h2 {
   color: aliceblue;
-  text-align: center;
-  margin-top: 50px;
-  margin-bottom: 5px;
-}
-
-p {
-  color: aliceblue;
-  text-align: center;
-  margin-top: 10px;
+  font-size: 20px;
   margin-bottom: 10px;
+  margin-left: 620px;
 }
 
-#reviewText {
-  margin: 1px;
-  padding: 1px;
-  width: 500px;
-  height: 300px;
-  resize: none;
-}
-
-#submitButton {
-  margin-left: 220px;
-  padding: 1px;
-  margin-top: 10px;
+#resultBox {
+  color: aliceblue;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-left: 620px;
 }
