@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: aliceblue;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: aliceblue;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 5px;
+}
+
+p {
+  color: aliceblue;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#reviewText {
+  margin: 1px;
+  padding: 1px;
+  width: 500px;
+  height: 300px;
+  resize: none;
+}
+
+#submitButton {
+  margin-left: 220px;
+  padding: 1px;
+  margin-top: 10px;
+}

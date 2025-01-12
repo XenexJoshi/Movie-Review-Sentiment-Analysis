@@ -18,13 +18,20 @@ def preprocess_text(text, vocab):
 def predict_text(model, tokenizer, text, vocab):
   tokens = preprocess_text(text, vocab)
   encoded_tokens = tokenizer.texts_to_sequences([tokens])
-  encoded_texts = keras.preprocessing.sequence.pad_sequences(encoded_tokens, maxlen = MAX_LEN, padding = 'post')
+  encoded_texts = keras.preprocessing.sequence.pad_sequences(encoded_tokens,
+                                                            maxlen = MAX_LEN, 
+                                                            padding = 'post')
   preds = model.predict([encoded_texts], batch_size = BATCH_SIZE)
-  if (preds >= 0.50):
-    return 'Negative'
-  return 'Positive'
+  preds = model.predict([encoded_texts], batch_size = BATCH_SIZE)
+  if (preds[0][0] >= 0.50):
+    acc = round((preds[0][0] - 0.50) * 2 * 100, 2)
+    tag = 'Negative'
+  else:
+    acc = round((0.50 - preds[0][0]) * 2 * 100, 2)
+    tag = 'Positive'
+  return tag, acc
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder = 'static')
 
 model = load('model.joblib')
 
@@ -44,5 +51,9 @@ def main():
     input_data = request.form["text"]
     with open('../model/vocab.txt', 'r') as file:
       vocab = file.read()
-    preds = predict_text(model = model, tokenizer = tokenizer, text = input_data, vocab = vocab)
-    return jsonify({'prediction' : str(preds)}), 200
+    label, confidence = predict_text(model = model, 
+                         tokenizer = tokenizer, 
+                         text = input_data, 
+                         vocab = vocab)
+    return jsonify({'prediction' : str(label), 
+                    'confidence' : (str(confidence) + "%")}), 200

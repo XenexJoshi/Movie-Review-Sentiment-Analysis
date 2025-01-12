@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
   <title> Review Sentiment Classifier </title>
 </head>
 
 <body>
   <h1> Write your review: </h1>
-  <input type="text" id="reviewText">
-  <button id="submitButton"> Submit </button>
+  <div className="wrapper">
+    <textarea id="reviewText" rows="10" cols="50"></textarea>
+    </br>
+    <button id="submitButton"> Submit </button>
+  </div>
+
   <div className="resultDiv">
     <h2> Prediction Result: </h2>
     <p id="resultBox"> </p>
@@ -35,7 +40,7 @@
         });
         if (response.ok) {
           const result = await response.json();
-          resultBox.textContent = `${result.prediction}`;
+          resultBox.textContent = `${result.prediction} (${result.confidence})`;
         } else {
           alert(`Failed to upload text file. Status: ${response.status}`);
         }
