@@ -1,5 +1,4 @@
 import string
-from preprocessing import *
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 MAX_LEN = 971
